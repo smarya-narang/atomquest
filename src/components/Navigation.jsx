@@ -40,9 +40,14 @@ export default function Navigation() {
           </>
         )}
         {user?.role === 'ADMIN' && (
-          <Link href="/admin/reports" className={`nav-link ${pathname.startsWith('/admin') ? 'active' : ''}`}>
-            Admin & Reports
-          </Link>
+          <>
+            <Link href="/admin/reports" className={`nav-link ${pathname === '/admin/reports' ? 'active' : ''}`}>
+              Admin & Reports
+            </Link>
+            <Link href="/admin/analytics" className={`nav-link ${pathname === '/admin/analytics' ? 'active' : ''}`}>
+              Analytics
+            </Link>
+          </>
         )}
       </nav>
 
