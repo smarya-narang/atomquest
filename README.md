@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AtomQuest Goal Setting & Tracking Portal
 
-## Getting Started
+A comprehensive, digital Goal Setting & Tracking Portal built for the **ATOMQUEST HACKATHON 1.0**.
 
-First, run the development server:
+## 🚀 Architecture
+- **Frontend & Backend**: Next.js (App Router)
+- **Styling**: Pure CSS / CSS Modules with modern Glassmorphism aesthetics (no TailwindCSS as per guidelines).
+- **Database**: Prisma ORM with SQLite (Easily swappable to PostgreSQL for production).
+- **Authentication**: Custom Mock Auth Provider for seamless switching between Employee, Manager, and Admin roles during the hackathon demo.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## ✨ Features
+### Phase 1: Goal Creation & Approval
+- Employee interface to define goals, targets, and weightages.
+- Hard validation logic (max 8 goals, min 10% weightage per goal, exactly 100% total weightage).
+- Manager inline approval workflow.
+- Secure goal locking after approval.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Phase 2: Achievement Tracking
+- Employee check-in interface filtered by quarterly time-windows.
+- Manager team-progress dashboard to view achievements, compute scores, and add check-in comments.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Phase 3: Reporting & Governance
+- Admin dashboard showing real-time goal completion metrics.
+- Exportable CSV reports of Planned vs. Actual achievements.
+- Comprehensive System Audit Trail logging all goal modifications.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Local Development
 
-## Learn More
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+2. **Push the database schema and seed demo data:**
+   ```bash
+   npx prisma db push
+   npx prisma generate
+   node prisma/seed.js
+   ```
+3. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
+4. Open [http://localhost:3000](http://localhost:3000) with your browser.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 👤 Demo Personas
+Use the dropdown in the top navigation bar to switch between the seeded personas:
+- **Admin User**: Full system access, audit logs, CSV exports.
+- **Manager User**: Approve goals and add quarterly check-in comments.
+- **Employee User**: Create goals, assign weightages, and log actual achievements.
