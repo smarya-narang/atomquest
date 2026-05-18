@@ -57,27 +57,27 @@ The application is built on a modern, serverless stack designed for high availab
 ```mermaid
 graph TD
     %% User Interfaces
-    User([Employee / Manager / Admin])
+    User(["Employee / Manager / Admin"])
     
     subgraph "Vercel Edge Network"
-        NextJS[Next.js App Router]
+        NextJS["Next.js App Router"]
         
         subgraph "Client Components (React)"
-            Auth[Mock Auth / Persona Switcher]
-            Dashboards[Role-Based Dashboards]
-            Charts[Chart.js Analytics]
+            Auth["Mock Auth / Persona Switcher"]
+            Dashboards["Role-Based Dashboards"]
+            Charts["Chart.js Analytics"]
         end
         
         subgraph "Server Actions & APIs (Node.js)"
-            API_Goals[/api/goals]
-            API_CheckIns[/api/check-ins]
-            API_Audit[/api/audit-logs]
+            API_Goals["/api/goals"]
+            API_CheckIns["/api/check-ins"]
+            API_Audit["/api/audit-logs"]
         end
     end
     
     subgraph "Managed Database Cloud"
-        PrismaORM(Prisma Client)
-        Postgres[(PostgreSQL Database)]
+        PrismaORM("Prisma Client")
+        Postgres[("PostgreSQL Database")]
     end
 
     %% Flow
