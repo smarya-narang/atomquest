@@ -7,7 +7,7 @@ export async function GET(request) {
   const role = searchParams.get('role');
 
   try {
-    if (!userId) return NextResponse.json({ error: 'Missing userId' }, { status: 400 });
+    if (!userId && role !== 'ADMIN') return NextResponse.json({ error: 'Missing userId' }, { status: 400 });
 
     let goals = [];
     if (role === 'EMPLOYEE') {
